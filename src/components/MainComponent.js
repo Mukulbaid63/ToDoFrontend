@@ -17,7 +17,7 @@ const MainComponent = () => {
 
   useEffect(() => {
     const apiCall = async () => {
-      const results = await fetch("http://localhost:8000/");
+      const results = await fetch("https://karyasuchi.herokuapp.com/");
       const items = await results.json();
       console.log(items[0]);
       setItemList(items[0]);
@@ -33,7 +33,7 @@ const MainComponent = () => {
         redirect: 'follow'
     };
     setStartDeleteCall(true);
-    fetch(`http://localhost:8000/todo/${index}`, requestOptions)
+    fetch(`https://karyasuchi.herokuapp.com/todo/${index}`, requestOptions)
         .then(response => response.json())
         .then(result => {
             setItemList(result[0])
@@ -56,7 +56,7 @@ useEffect(() => {
         redirect: 'follow'
     };
     if (startApiCall) {
-        fetch("http://localhost:8000/todo", requestOptions)
+        fetch("https://karyasuchi.herokuapp.com/todo", requestOptions)
             .then(response => response.json())
             .then(result => {
                 setItemList(result)
@@ -82,7 +82,7 @@ const updateApiCall = async (index, item) => {
         redirect: 'follow'
     };
     setStartUpdateCall(true);
-    fetch(`http://localhost:8000/todo/${index}`, requestOptions)
+    fetch(`https://karyasuchi.herokuapp.com/todo/${index}`, requestOptions)
         .then(response => response.json())
         .then(result => {
             setItemList(result);
@@ -99,7 +99,7 @@ const updateApiCall = async (index, item) => {
       <div style={{ display: "flex" }}>
 
         <div>
-        <h2>TASKS TO DO</h2>
+        <h2>TASKS TO DO &nbsp;&nbsp;</h2>
 
           {makeGetRequest ? (
             "LOADING..."
